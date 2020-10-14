@@ -1,0 +1,12 @@
+## Interface: 80200
+## Title: DialogKey-SL
+## Notes: Lets you hit a key to confirm loot/purchase dialogs, accept/complete quests, select quest rewards, etc. Hit 2 to select a reward then spacebar to complete quests? Easy!
+## Author: Foxthorn (SL adaptions by Kayakflo)
+## Version: 1.8
+## SavedVariables: DialogKeyDB
+## OptionalDeps: Ace3
+## X-Embeds: Ace3
+embeds.xml
+core.lua
+main.lua
+options.lua
