@@ -157,10 +157,15 @@ function DialogKey:HandleKey(key)				-- Run for every key hit ever; runs ClickBu
 			end
 		end
 	elseif key:find("^%d$") and QuestFrameGreetingPanel:IsVisible() and DialogKey.db.global.numKeysForGossip then
-		local keynum = tonumber(key)
-		
 		local frames = DialogKey:GetQuestButtons()
-		DialogKey:ClickFrame(frames[1].frame)
+
+		for _, entry in pairs(frames) do
+			framename = entry.name
+			frame_matches = framename:find("^"..key..".")
+			if frame_matches then
+				DialogKey:ClickFrame(entry.frame)
+			end
+		end
 		
 		-- TODO: check if above line works? surely sometimes it puts accepted quests above available quests?
 		
@@ -413,7 +418,6 @@ function DialogKey:EnumerateGossips_Quest()		-- Prefixes 1., 2., etc. to NPC opt
 	if not GossipFrameGreetingPanel:IsVisible() and not QuestFrameGreetingPanel:IsVisible() then return end
 	
 	local frames = DialogKey:GetQuestButtons()
-	
 	local num = 1
 	for i,f in pairs(frames) do
 		local frame = f.frame
