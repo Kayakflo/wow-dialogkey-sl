@@ -242,15 +242,18 @@ function DialogKey:ClickButtons()				-- Main function to click on dialog buttons
 		elseif framename == "GossipTitleButton1" and GossipFrame:IsVisible() then
 			-- Try clicking the first gossip option with a completed quest icon -- also check if it's visible, since frames are reused and it might get stuck trying to click a leftover, invisible active quest button
 			for i=1,9 do
-				if _G["GossipTitleButton"..i.."GossipIcon"]:IsVisible() and (
-					_G["GossipTitleButton"..i.."GossipIcon"]:GetTexture() == "Interface\\GossipFrame\\ActiveQuestIcon" or
-					_G["GossipTitleButton"..i.."GossipIcon"]:GetTexture() == "Interface\\GossipFrame\\ActiveLegendaryQuestIcon") then
-					return DialogKey:ClickFrameName("GossipTitleButton"..i)
+				if GossipFrame_GetTitleButton(i) then
+					if GossipFrame_GetTitleButton(i).Icon:IsVisible() and (
+						GossipFrame_GetTitleButton(i).Icon:GetTexture() == "Interface/GossipFrame/ActiveQuestIcon" or
+						GossipFrame_GetTitleButton(i).Icon:GetTexture() == "Interface/GossipFrame/ActiveLegendaryQuestIcon") then
+					
+						return DialogKey:ClickFrame(GossipFrame_GetTitleButton(i))
+					end
 				end
 			end
 			
 			-- If none were found, just click the first one
-			return DialogKey:ClickFrameName("GossipTitleButton1")
+			return DialogKey:ClickFrame(GossipFrame_GetTitleButton(1))
 		
 		elseif DialogKey:ClickFrameName(framename) then
 			return true
