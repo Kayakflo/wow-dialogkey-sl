@@ -1,6 +1,6 @@
 # wow-dialogkey-sl
 Adjusted version of the original wow-dialog key addon to work with WoW Shadowlands.  
-Can be installed by downloading the ZIP manually or using CurseBreaker:
+Can be installed by downloading the ZIP manually or using CurseBreaker:  
 `CB> install https://github.com/Kayakflo/wow-dialogkey-sl`
 
 The original repo can be found here:
