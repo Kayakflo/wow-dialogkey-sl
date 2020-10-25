@@ -1,5 +1,5 @@
 # DO NOT USE THIS REPO ANYMORE!
-This repository is no longer maintained and will be removed on 1st November.
+This repository is no longer maintained
 
 # Original Repo
 You can find the original repository created and maintained by @TonyRaccoon here:  
